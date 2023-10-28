@@ -31,15 +31,17 @@
       <div v-if="activeContact">
         <h4>Chi tiết liên hệ <i class="fas fa-address-card"></i></h4>
         <contact-card :contact="activeContact"></contact-card>
+        <router-link
+          :to="{
+            name: 'contact.edit',
+            params: { id: activeContact._id },
+          }"
+        >
+          <span class="mt-2 badge badge-warning">
+            <i class="fas fa-edit"></i> Hiệu chỉnh</span
+          >
+        </router-link>
       </div>
-      <button
-        v-if="activeIndex !== -1"
-        class="btn btn-xs btn-warning"
-        style="padding: 0 2px; font-size: 12px; font-weight: 700"
-      >
-        <i class="fas fa-pen-to-square"></i>
-        Hiệu chỉnh
-      </button>
     </div>
   </div>
 </template>
