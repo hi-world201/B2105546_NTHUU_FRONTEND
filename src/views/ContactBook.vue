@@ -14,7 +14,7 @@
       <p v-else>Không có liên hệ nào</p>
 
       <div class="mt-3 row d-flex justify-content-around align-items-center">
-        <button class="btn btn-sm btn-primary" @click="refreshList()">
+        <button class="btn btn-sm btn-primary" @click="refreshContact()">
           <i class="fas fa-redo"></i> Làm mới
         </button>
         <button class="btn btn-sm btn-success" @click="goToAddContact()">
@@ -111,6 +111,12 @@ export default {
       this.retrieveContacts();
       this.activeIndex = -1;
       this.searchText = "";
+    },
+
+    refreshContact() {
+      if (confirm("Bạn có muốn làm mới tất cả liên hệ?")) {
+        this.refreshList();
+      }
     },
 
     async removeAllContacts() {

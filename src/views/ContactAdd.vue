@@ -24,19 +24,24 @@ export default {
       try {
         await ContactService.create(data);
         this.message = "Liên hệ được thêm thành công.";
+        alert(this.message);
+        this.$router.push({ name: "contactbook" });
       } catch (error) {
         console.log(error);
       }
     },
+    refreshContact() {
+      this.contact = {
+        name: "",
+        email: "",
+        address: "",
+        phone: "",
+        favorite: false,
+      };
+    },
   },
   created() {
-    this.contact = {
-      name: "",
-      email: "",
-      address: "",
-      phone: "",
-      favorite: false,
-    };
+    this.refreshContact();
     this.message = "";
   },
 };

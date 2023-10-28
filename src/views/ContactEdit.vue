@@ -46,6 +46,9 @@ export default {
       try {
         await ContactService.update(this.contact._id, data);
         this.message = "Liên hệ được cập nhật thành công.";
+        if (confirm(this.message + " Bạn có muốn trở về trang chủ?")) {
+          this.$router.push({ name: "contactbook" });
+        }
       } catch (error) {
         console.log(error);
       }
