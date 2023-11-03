@@ -22,4 +22,8 @@ export default {
 #app {
   margin: auto;
 }
+.page {
+  max-width: 400px;
+  margin: auto;
+}
 </style>

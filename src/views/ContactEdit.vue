@@ -68,5 +68,10 @@ export default {
     this.getContact(this.id);
     this.message = "";
   },
+  beforeRouteLeave(from, to, next) {
+    if (confirm("Thay đổi chưa được lưu! Bạn có chắc chắn rời khỏi?")) {
+      next();
+    } else next(false);
+  },
 };
 </script>
